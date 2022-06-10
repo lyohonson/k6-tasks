@@ -15,8 +15,38 @@ import {
 } from './data.js';
 
 export const options = {
-  vus: 1,
-  duration: '1s',
+  scenarios: {
+    contacts: {
+      executor: 'ramping-arrival-rate',
+
+      timeUnit: '1m',
+
+      preAllocatedVUs: 100,
+
+      stages: [
+        { target: 30, duration: '1m' },
+        { target: 30, duration: '1m' },
+        { target: 60, duration: '1m' },
+        { target: 60, duration: '1m' },
+        { target: 90, duration: '1m' },
+        { target: 90, duration: '1m' },
+        { target: 120, duration: '1m' },
+        { target: 120, duration: '1m' },
+        { target: 150, duration: '1m' },
+        { target: 150, duration: '1m' },
+        { target: 180, duration: '1m' },
+        { target: 180, duration: '1m' },
+        { target: 210, duration: '1m' },
+        { target: 210, duration: '1m' },
+        { target: 240, duration: '1m' },
+        { target: 240, duration: '1m' },
+        { target: 270, duration: '1m' },
+        { target: 270, duration: '1m' },
+        { target: 300, duration: '1m' },
+        { target: 300, duration: '1m' },
+      ],
+    },
+  },
 };
 
 export default function () {
