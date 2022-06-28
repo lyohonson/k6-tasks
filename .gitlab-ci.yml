@@ -9,7 +9,7 @@ test:
   variables:
     K6_OUT: influxdb=http://iam-qa-01.test.env:8086/k6
   script:
-    - k6 run ./scenarios/project/task3.js
+    - k6 run ./scenarios/project/task3.js --insecure-skip-tls-verify
   artifacts:
     when: always
     paths:
