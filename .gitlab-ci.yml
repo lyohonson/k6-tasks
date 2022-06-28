@@ -9,7 +9,6 @@ test:
   variables:
     K6_OUT: influxdb=http://iam-qa-01.test.env:8086/k6
   script:
-    - npm install
     - k6 run ./scenarios/project/task3.js
   artifacts:
     when: always
