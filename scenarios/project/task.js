@@ -11,7 +11,7 @@ const BASE_URL = 'https://';
 
 export function signup() {
   const signupResp = http.post(
-    `${BASE_URL}/api/v1/flows/signup`,
+    `${BASE_URL}/api/v1/flows/registration`,
     JSON.stringify(signUpBody()),
     { headers: { 'Content-Type': 'application/json' } },
   );
@@ -25,7 +25,7 @@ export function auth() {
     platform: 'web',
   };
   const authResp = http.post(
-    `${BASE_URL}/api/v1/auth/auth`,
+    `${BASE_URL}/api/v1/auth/signin`,
     body,
     { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } },
   );
