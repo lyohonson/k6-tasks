@@ -6,13 +6,12 @@ import {
 import { signUpBody, users } from './data.js';
 import { check200, check201 } from '../assertions.js';
 
-const BASE_URL = 'https://iam-api-gateway.test.env';
-
+const BASE_URL = 'https://';
 
 
 export function signup() {
   const signupResp = http.post(
-    `${BASE_URL}/api/v1/flows/registration`,
+    `${BASE_URL}/api/v1/flows/signup`,
     JSON.stringify(signUpBody()),
     { headers: { 'Content-Type': 'application/json' } },
   );
@@ -26,7 +25,7 @@ export function auth() {
     platform: 'web',
   };
   const authResp = http.post(
-    `${BASE_URL}/api/v1/auth/signin`,
+    `${BASE_URL}/api/v1/auth/auth`,
     body,
     { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } },
   );
