@@ -1,0 +1,31 @@
+image: grafana/k6
+
+stages:
+  - test
+  - report
+
+test:
+  stage: test
+  variables:
+    K6_OUT: influxdb=http://iam-qa-01.test.env:8086/k6
+  script:
+    - npm install
+    - k6 run ./scenarios/project/task3.js
+  artifacts:
+    when: always
+      paths: result.html
+  environment:
+    - testenv
+
+pages:
+  stage: report
+  dependencies:
+    - test
+  script:
+    - cp result.html public/
+  artifacts:
+    paths:
+      - public
+    expire_in: 14 days
+  when: manual
+
