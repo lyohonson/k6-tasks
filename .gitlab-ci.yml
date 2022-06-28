@@ -10,8 +10,7 @@ test:
     K6_OUT: influxdb=http://iam-qa-01.test.env:8086/testdb
   script:
     - k6 run ./scenarios/project/task.js --insecure-skip-tls-verify
-  when:
-    - manual
+  when: manual
   artifacts:
     when: always
     paths:
