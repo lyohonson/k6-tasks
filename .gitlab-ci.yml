@@ -23,6 +23,7 @@ pages:
   dependencies:
     - test
   script:
+    - mkdir -p public
     - cp -r result.html public/
   artifacts:
     paths:
