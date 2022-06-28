@@ -9,22 +9,18 @@ import { check200, check201 } from '../assertions.js';
 const BASE_URL = 'https://iam-api-gateway.test.env';
 
 
+
 export function signup() {
   const signupResp = http.post(
     `${BASE_URL}/api/v1/flows/registration`,
     JSON.stringify(signUpBody()),
     { headers: { 'Content-Type': 'application/json' } },
   );
-  // console.log(`auth request body ${signupResp.request.body}`);
-  //
-  // console.log(`signup response body ${signupResp.body}`);
-  // console.log(`signup response status ${signupResp.status}`);
   check201(signupResp);
 }
 
 export function auth() {
   const body = {
-    // wl_id: '8711b8aa-cc68-413a-8034-c2716a2ce14a',
     username: randomItem(users).email,
     password: 'Qwerty123',
     platform: 'web',
@@ -34,9 +30,6 @@ export function auth() {
     body,
     { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } },
   );
-  // console.log(`auth request body ${authResp.request.body}`);
-  // console.log(`auth response body ${authResp.body}`);
-  // console.log(`auth response status ${authResp.status}`);
 
   check200(authResp);
 }
@@ -130,7 +123,7 @@ export const options = {
         },
         {
           target: 350,
-          duration: '2m',
+          duration: '6m',
         },
       ],
     },
@@ -219,7 +212,7 @@ export const options = {
         },
         {
           target: 120,
-          duration: '2m',
+          duration: '6m',
         },
       ],
     },

@@ -4,7 +4,6 @@ import { uuidv4 } from 'https://jslib.k6.io/k6-utils/1.2.0/index.js';
 
 export const users = new SharedArray('Users', (() => papaparse.parse(open('./csv/usersLoad.csv'), { header: true }).data));
 
-// eslint-disable-next-line import/prefer-default-export
 export const signUpBody = () => ({
   login: `${uuidv4()}@test.exness.io`,
   country: 'TH',
