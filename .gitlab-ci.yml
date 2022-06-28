@@ -13,9 +13,10 @@ test:
     - k6 run ./scenarios/project/task3.js
   artifacts:
     when: always
-      paths: result.html
-  environment:
-    - testenv
+    paths:
+      - result.html
+  tags:
+    - test.env
 
 pages:
   stage: report
